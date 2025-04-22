@@ -26,6 +26,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "cypress": "^14.3.0",
+    "cypress-mongodb": "^6.2.1",
     "eslint": "^9",
     "eslint-config-next": "15.3.0"
   }

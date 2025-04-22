@@ -1,6 +1,16 @@
 import { signupPage } from "../../pageObjects/SignupPage";
 
 describe("Signup Form Tests", () => {
+  before(() => {
+    cy.deleteOne({ email: "aamish.latif9798@gmail.com" }).then((result) => {
+      if (result.deletedCount === 0) {
+        console.log("No user found to delete.");
+      } else {
+        console.log("Deleted user(s).");
+      }
+    });
+  });
+
   beforeEach(() => {
     signupPage.visit();
   });
@@ -45,14 +55,11 @@ describe("Signup Form Tests", () => {
   });
 
   it("successfully signs up a new user", () => {
-    const timestamp = Date.now();
-    const uniqueEmail = `user${timestamp}@test.com`;
-
-    signupPage.typeFirstName("Test");
-    signupPage.typeLastName("User");
-    signupPage.typeEmail(uniqueEmail);
-    signupPage.typePassword("Password123");
-    signupPage.typeConfirmPassword("Password123");
+    signupPage.typeFirstName("Muhammad");
+    signupPage.typeLastName("Aamish");
+    signupPage.typeEmail("aamish.latif9798@gmail.com");
+    signupPage.typePassword("Aamish123");
+    signupPage.typeConfirmPassword("Aamish123");
     signupPage.selectGender("male");
     signupPage.clickSignup();
 

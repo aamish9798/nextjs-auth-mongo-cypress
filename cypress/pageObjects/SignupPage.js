@@ -107,7 +107,7 @@ class SignupPage {
   }
 
   assertSnackbarMessage(msg) {
-    cy.get(".MuiSnackbar-root").should("be.visible");
+    cy.get(".MuiSnackbar-root").should("be.visible", { setTimeout: 20000 });
     cy.get(".MuiAlert-message").should("contain.text", msg);
   }
 }
